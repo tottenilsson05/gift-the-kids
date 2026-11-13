@@ -40,7 +40,7 @@ export const siteConfig = {
   launchMode: "auto" as "auto" | "prelaunch" | "live",
 
   /** Project X profile, e.g. "https://x.com/giftthekids". Empty = shown as "Soon". */
-  xUrl: "",
+  xUrl: "https://x.com/giftthekids",
 
   donateGgUrl: "https://donate.gg",
 
