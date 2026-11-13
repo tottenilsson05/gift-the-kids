@@ -81,16 +81,12 @@ export function useLaunch(initial: TokenStatus | null, mode: Mode, address: stri
   else if (!s.data) view = s.failed ? "unknown" : "checking";
   else view = s.data.status;
 
-  const live = view === "live";
-  const uncertain = view === "unknown";
-
   return {
     view,
     market: s.data?.market ?? null,
     marketFailed: s.failed,
-    /** Pump.fun page exists (or we can't rule it out). */
-    pumpEnabled: live || uncertain,
-    /** Dexscreener page resolves (indexed), or we can't rule it out. */
-    dexEnabled: uncertain || (live && (s.data?.dexscreenerIndexed ?? mode === "live")),
+    /** Pump.fun and Dexscreener links are always active (the token address is fixed). */
+    pumpEnabled: true,
+    dexEnabled: true,
   };
 }
