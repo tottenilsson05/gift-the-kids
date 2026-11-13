@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  background: #000;
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(20, 245, 168, 0.22);
+  color: #fff;
+}
+
+/* ── Hero light: extremely subtle, behind the gift only ─────── */
+.hero-light {
+  position: absolute;
+  inset: -22%;
+  border-radius: 9999px;
+  background: radial-gradient(closest-side, rgba(20, 245, 168, 0.09), rgba(20, 245, 168, 0) 70%);
+  pointer-events: none;
+}
+
+/* ── Platform buttons ───────────────────────────────────────── */
+@layer components {
+  .pbtn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    height: 56px;
+    padding: 0 16px 0 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(20, 245, 168, 0.22);
+    background: #040605;
+    text-align: left;
+    -webkit-tap-highlight-color: transparent;
+    transition:
+      transform 200ms cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 200ms ease,
+      background-color 200ms ease,
+      box-shadow 200ms ease;
+  }
+  @media (min-width: 640px) {
+    .pbtn {
+      width: 208px;
+    }
+  }
+  .pbtn .pb-logo img,
+  .pbtn .pb-logo svg {
+    image-rendering: auto;
+  }
+  .pbtn .pb-arrow {
+    transition:
+      transform 200ms ease,
+      color 200ms ease;
+  }
+  @media (hover: hover) {
+    a.pbtn:hover {
+      transform: translateY(-2px);
+      border-color: rgba(20, 245, 168, 0.62);
+      background-color: rgba(20, 245, 168, 0.045);
+      box-shadow:
+        0 0 0 1px rgba(20, 245, 168, 0.06),
+        0 6px 22px -8px rgba(20, 245, 168, 0.5);
+    }
+    a.pbtn:hover .pb-arrow {
+      color: #14f5a8;
+      transform: translate(1px, -1px);
+    }
+  }
+  a.pbtn:active {
+    transform: translateY(0) scale(0.985);
+    transition-duration: 80ms;
+  }
+  a.pbtn:focus-visible {
+    outline: 2px solid rgba(20, 245, 168, 0.6);
+    outline-offset: 3px;
+  }
+  .pbtn-off {
+    cursor: default;
+    border-color: rgba(255, 255, 255, 0.08);
+    background: transparent;
+  }
+  .pbtn-off .pb-logo {
+    opacity: 0.55;
+  }
+  .pbtn-off > span > span:first-child {
+    color: rgba(255, 255, 255, 0.6);
+  }
+}
+
+/* ── Scroll reveals (content only hidden when JS is running) ── */
+.js .reveal .ri {
+  opacity: 0;
+  transform: translateY(14px);
+}
+.js .reveal .rl {
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+.reveal .ri,
+.reveal .rl {
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(var(--i, 0) * 90ms);
+}
+.js .reveal.is-shown .ri {
+  opacity: 1;
+  transform: none;
+}
+.js .reveal.is-shown .rl {
+  transform: scaleX(1);
+}
+
+/* ── Reduced motion: no movement, everything visible ────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0.001ms !important;
+    transition-delay: 0ms !important;
+  }
+  .js .reveal .ri,
+  .js .reveal .rl {
+    opacity: 1;
+    transform: none;
+  }
+  a.pbtn:hover,
+  a.pbtn:active {
+    transform: none;
+  }
+}
