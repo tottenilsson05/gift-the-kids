@@ -171,12 +171,12 @@ export default function LaunchPanel({
       </div>
 
       <div className="mt-10 flex animate-fade-up flex-col items-center gap-4 [animation-delay:980ms]">
-        <p className="inline-flex items-center gap-2 text-[12px] text-muted" aria-live="polite">
-          <span
-            className={`h-1.5 w-1.5 rounded-full ${live ? "bg-neon" : view === "unknown" ? "bg-amber-300/80" : "bg-white/40"}`}
-          />
-          {statusText[view]}
-        </p>
+        {(live || view === "unknown") && (
+          <p className="inline-flex items-center gap-2 text-[12px] text-muted" aria-live="polite">
+            <span className={`h-1.5 w-1.5 rounded-full ${live ? "bg-neon" : "bg-amber-300/80"}`} />
+            {statusText[view]}
+          </p>
+        )}
 
         {live && <MarketRow market={market} failed={marketFailed} />}
         {view === "unknown" && <p className="text-[12px] text-muted">Data unavailable</p>}
