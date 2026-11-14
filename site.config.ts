@@ -30,7 +30,7 @@ export const siteConfig = {
       : "http://localhost:3000"),
 
   /** Solana token mint address on Pump.fun. Used everywhere on the site. */
-  tokenAddress: "CNzHveiTBFUmBeAt1VfcT1HcMYFqKqtjTiRGDyWrpump",
+  tokenAddress: "B48mB3doUa5312UatFd87MQfzMNCRsbAsTomLzsGpump",
 
   /**
    * "auto"      → detect launch automatically (recommended)

@@ -15,7 +15,7 @@ npm run build    # production build (fetches official brand icons first)
 
 | Field | What it does |
 |---|---|
-| `tokenAddress` | `CNzHveiTBFUmBeAt1VfcT1HcMYFqKqtjTiRGDyWrpump`. Every link and copy button derives from this one value. |
+| `tokenAddress` | `B48mB3doUa5312UatFd87MQfzMNCRsbAsTomLzsGpump`. Every link and copy button derives from this one value. |
 | `launchMode` | `"auto"` (default) detects launch. `"prelaunch"` / `"live"` force a state. |
 | `xUrl` | Project X profile. Empty = the X button shows as "Coming soon" (not clickable). |
 | `receipts` | Verified donation receipts, added by hand: `{ date, description, url, amount? }`. Empty = none shown. |

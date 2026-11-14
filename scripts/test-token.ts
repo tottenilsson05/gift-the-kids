@@ -5,7 +5,7 @@
 import assert from "node:assert/strict";
 import { fetchTokenStatus, num } from "../lib/token.ts";
 
-const MINT = "CNzHveiTBFUmBeAt1VfcT1HcMYFqKqtjTiRGDyWrpump";
+const MINT = "B48mB3doUa5312UatFd87MQfzMNCRsbAsTomLzsGpump";
 
 type Route = { rpc?: unknown; pump?: unknown; dex?: unknown; gecko?: unknown };
 // Each value: a JSON body, a number (HTTP status), or "throw" (network failure).
